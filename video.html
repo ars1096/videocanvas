@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Video examples</title>
+    <script>
+        window.onload=ini;
+        function ini(){
+
+            var mv= document.getElementById("mivideo");
+            mv.removeAttribute("controls");
+
+            var pb = document.getElementById("play");
+            pb.onclick= function () {
+                if(mv.paused){
+
+                    mv.play();
+                }else{
+
+
+                    mv.pause();
+                }
+            };
+
+            mv.addEventListener("play",function () {
+                pb.title="Pausa";
+                pb.innerHTML="&#x2590;&#x2590";
+            },false);
+
+            mv.addEventListener("pause",function () {
+                pb.title= "Reproducir";
+                pb.innerHTML="&#x25BA";
+            },false);
+
+
+
+        }
+        
+
+    </script>
+
+    <style>
+        #play{
+            position: absolute;
+            top: 150px;
+            left: 10px;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+<button id="play" title="Reproducir">&#x2590;&#x2590;</button>
+
+<video class = "" id="mivideo" autoplay controls muted>
+    <source src="BigBuckBunny_320x180.mp4">
+
+</video>
+
+</body>
+</html>
